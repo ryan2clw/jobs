@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import Lead, WebLink
-from .serializers import LeadSerializer
+from .serializers import LeadSerializer, WebLinkSerializer
 from rest_framework import viewsets
 
 # Create your views here.
@@ -15,5 +15,5 @@ class WebLinkViewSet(viewsets.ModelViewSet):
     """
     A viewset for viewing and editing user instances.
     """
-    serializer_class = LeadSerializer
+    serializer_class = WebLinkSerializer
     queryset = WebLink.objects.all()

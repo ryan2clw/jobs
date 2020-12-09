@@ -1,19 +1,34 @@
 from rest_framework import serializers
 from .models import Lead, WebLink
-
+""" Main ViewSets """
 class WebLinkSerializer(serializers.ModelSerializer):
 
     def __str__(self):
-        return self.headline
+        return self.uri
 
     class Meta:
         model = WebLink
         fields = [ 'uri', 'job_lead' ]
+        
+
+        
+""" ListView """
+class WebLinkListSerializer(serializers.ModelSerializer):
+
+    def __str__(self):
+        return self.uri
+
+    class Meta:
+        model = WebLink
+        fields = [ 'uri' ]
+
+    def to_representation(self, instance):
+        return instance.uri
 
 
 class LeadSerializer(serializers.ModelSerializer):
 
-    links = WebLinkSerializer(read_only=True, many=True)
+    links = WebLinkListSerializer(read_only=True, many=True)
 
     def __str__(self):
         return self.headline
@@ -28,7 +43,7 @@ class LeadSerializer(serializers.ModelSerializer):
         lead = Lead.objects.create(**validated_data)
         for link_data in links_data:
             WebLink.objects.create(job_lead=lead, **link_data)
-        return musician
+        return lead
 
     def update(self, instance, validated_data):
         links_data = validated_data.pop('links')

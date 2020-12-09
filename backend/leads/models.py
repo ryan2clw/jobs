@@ -9,8 +9,8 @@ class Lead(models.Model):
     """
     created_on = models.DateTimeField(auto_now_add=True)
     company_name = models.CharField(max_length=100)
-    median_salary=models.IntegerField()
-    technology = models.CharField(max_length=500)
+    median_salary=models.IntegerField(null=True)
+    technology = models.CharField(max_length=500, null=True)
     contact_name = models.CharField(max_length=100, null=True)
     email = models.EmailField(null=True)
     description = models.TextField() # Where and what industry
