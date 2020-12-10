@@ -15,8 +15,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.views.generic import RedirectView
+from django.conf.urls import url
+from django.contrib.staticfiles.storage import staticfiles_storage
+from django.http import HttpResponse
+from django.views.generic.base import RedirectView
+
+def okay(request):
+    return HttpResponse('AAABBB', content_type='image/jpeg')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('favicon.ico', okay),
     path('django-web-api/', include('leads.urls'))
 ]

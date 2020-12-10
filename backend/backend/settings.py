@@ -128,5 +128,5 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATIC_URL = '/static/'
-STATIC_ROOT = "/home/ryan2clw/react-jobs/build/static"
+STATIC_URL = '/django-static/'
+STATIC_ROOT = '/home/ryan2clw/react-jobs/build/static'

@@ -3,6 +3,7 @@ from .models import Lead
 
 
 class LeadAdmin(admin.ModelAdmin):
-    fields = ['company_name', 'contact_name', 'email', 'description', 'notes']
+    fields = ['company_name', 'median_salary', 'technology', 'contact_name', 'email', 
+                   'description', 'notes']
 
 admin.site.register(Lead, LeadAdmin)
