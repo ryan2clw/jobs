@@ -8,9 +8,9 @@ class Lead(models.Model):
     
     """
     created_on = models.DateTimeField(auto_now_add=True)
-    company_name = models.CharField(max_length=100)
+    company_name = models.CharField(max_length=100, null=True)
     median_salary=models.IntegerField(null=True)
-    technology = models.CharField(max_length=500, null=True)
+    technology = models.CharField(max_length=500, default="")
     contact_name = models.CharField(max_length=100, null=True)
     email = models.EmailField(null=True)
     description = models.TextField() # Where and what industry
@@ -21,5 +21,5 @@ class Lead(models.Model):
 
 class WebLink(models.Model):
     """ Links to the job description """
-    uri = models.CharField(max_length=100)
+    uri = models.CharField(max_length=300)
     job_lead = models.ForeignKey(Lead, on_delete=models.CASCADE, related_name='links')

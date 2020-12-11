@@ -25,7 +25,7 @@ def okay(request):
     return HttpResponse('AAABBB', content_type='image/jpeg')
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('django-web-api/admin/', admin.site.urls),
     path('favicon.ico', okay),
     path('django-web-api/', include('leads.urls'))
 ]

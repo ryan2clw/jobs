@@ -13,7 +13,7 @@ class LeadViewSet(viewsets.ModelViewSet):
 
 class WebLinkViewSet(viewsets.ModelViewSet):
     """
-    A viewset for viewing and editing user instances.
+    A viewset for viewing and editing links to jobs.
     """
     serializer_class = WebLinkSerializer
     queryset = WebLink.objects.all()
